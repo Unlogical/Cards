@@ -1,0 +1,29 @@
+.header{
+  font-size: 40px;
+  text-align: center;
+  padding: 80px 0 40px 0;
+}
+
+.mainImage{
+  height: 300px;
+  width: 400px;
+  display: block;
+  float: left;
+  margin: 0 30px 10px 140px;
+  background-size: cover;
+  background-position: center center; 
+  background-image: url("images/main.jpg");
+}
+
+.right {
+  float: right;
+}
+
+.rightText{
+  width: 400px;
+  margin-right: 140px;
+}
+
+button {
+  margin-left: 50%;
+}
