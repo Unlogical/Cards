@@ -4,7 +4,7 @@
   padding: 80px 0 40px 0;
 }
 .center{
-  margin: 0 200px 0 200px;
+  margin: 0 240px 0 240px;
 }
 
 .mainImage{
@@ -12,7 +12,7 @@
   width: 400px;
   display: block;
   float: left;
-  margin: 0 30px 10px 10px;
+  margin: 0 10px 10px 10px;
   background-size: cover;
   background-position: center center; 
   background-image: url("images/main.jpg");
@@ -27,6 +27,17 @@
   margin-right: 10px;
 }
 
-button {
-  margin-left: 50%;
+.bigFriendlyButton, .button{
+  float: right;
+  margin: 10px 10px 10px 200px;
+}
+
+.bigFriendlyButton{
+	height: 50px;
+	width: 200px;
+}
+
+.button {
+   height: 30px;
+	width: 100px;
 }
