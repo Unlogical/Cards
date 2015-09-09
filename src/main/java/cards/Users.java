@@ -13,7 +13,7 @@ public class Users {
         return null;
     }
 
-    public static int addUser(String login, String passwd, String email, boolean gender, Date birthDate) {
-        return 0;
+    public static boolean addUser(String login, String passwd, String email, boolean gender, Date birthDate) {
+        return true;
     }
 }
