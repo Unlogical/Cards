@@ -10,7 +10,7 @@ import java.util.Date;
 public class Users {
 
     public static User getUser(String login){
-        return null;
+        return new User(login, login + "@lol.com", true, new Date(System.currentTimeMillis()));
     }
 
     public static boolean addUser(String login, String passwd, String email, boolean gender, Date birthDate) {
