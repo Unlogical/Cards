@@ -68,7 +68,7 @@ CREATE TABLE statistics(
 );
 
 
-INSERT INTO users(login, email, passwd, birth_date) VALUES('fluttershy', 'flutter@shy.com', '1234');
+INSERT INTO users(login, email, passwd, birth_date) VALUES('fluttershy', 'flutter@shy.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4');
 INSERT INTO card_sets(title, author, description) VALUES('Птицы', 1, 'Выучи названия всех птиц!');
 INSERT INTO used_card_sets(user_id, card_set_id) VALUES(1,1);
 INSERT INTO cards(image_a, text_b, card_set_id, reversable) VALUES('http://nohost.com/1.jpg', 'Дятел', 1, false);

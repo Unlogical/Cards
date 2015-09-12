@@ -13,5 +13,6 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
     compile("org.springframework.boot:spring-boot-starter-web:1.2.5.RELEASE")
-    compile('org.postgresql:postgresql:9.3-1103-jdbc41')
+    compile("org.postgresql:postgresql:9.3-1103-jdbc41")
+    compile("commons-codec:commons-codec:1.10")
 }

@@ -1,8 +1,8 @@
 package cards;
 
 import cards.models.User;
-
 import java.sql.*;
+import static org.apache.commons.codec.digest.DigestUtils.sha256Hex;
 
 /**
  * Created by alexandra on 9/9/15.
@@ -38,7 +38,6 @@ public class Users {
         }
 
          return null;
-
     }
 
     public static boolean addUser(String login, String passwd, String email, boolean gender) {
@@ -46,7 +45,7 @@ public class Users {
         try {
             PreparedStatement insertUser = connection.prepareStatement("insert into users(login, passwd, email, gender) values (?,?,?,?,?)");
             insertUser.setString(1, login);
-            insertUser.setString(2, passwd);
+            insertUser.setString(2, sha256Hex(passwd));
             insertUser.setString(3, email);
             insertUser.setBoolean(4, gender);
             return insertUser.execute();
