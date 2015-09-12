@@ -1,7 +1,5 @@
 package cards.models;
 
-import java.sql.Date;
-
 /**
  * Created by alexandra on 9/9/15.
  */
@@ -10,13 +8,11 @@ public class User {
     private final String login;
     private final String email;
     private final boolean gender;
-    private final Date birthDate;
 
-    public User(String login, String email, boolean gender, Date birthDate) {
+    public User(String login, String email, boolean gender) {
         this.login = login;
         this.email = email;
         this.gender = gender;
-        this.birthDate = birthDate;
     }
 
     public String getLogin() {
@@ -29,9 +25,5 @@ public class User {
 
     public boolean isGender() {
         return gender;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
     }
 }

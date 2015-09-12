@@ -25,11 +25,8 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.POST)
-    public ResultMessage addUser(String login, String passwd, String email, boolean gender, Date birthDate){
-
-        System.out.println(birthDate);
-
-        if(Users.addUser(login, passwd, email, gender, birthDate)){
+    public ResultMessage addUser(String login, String passwd, String email, boolean gender){
+        if(Users.addUser(login, passwd, email, gender)){
             return new ResultMessage("ok", "user created", null);
         }
         return new ResultMessage("fail", "user not created", null);
