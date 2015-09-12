@@ -2,11 +2,7 @@ package cards;
 
 import cards.models.User;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Date;
+import java.sql.*;
 
 /**
  * Created by alexandra on 9/9/15.
@@ -31,7 +27,7 @@ public class Users {
     public static User getUser(String login){
 
         try {
-            ResultSet resultSet = connection.createStatement().executeQuery("select * from users where login='" + login + "'");
+            ResultSet resultSet = connection.createStatement().executeQuery("select * from users where login='" + login + "'"); // TODO: use prepared statements
             while(resultSet.next()){
                 String email = resultSet.getString("email");
                 Date birthdate = resultSet.getDate("birth_date");
@@ -47,7 +43,19 @@ public class Users {
     }
 
     public static boolean addUser(String login, String passwd, String email, boolean gender, Date birthDate) {
-        return true;
+        //TODO check this data
+        try {
+            PreparedStatement insertUser = connection.prepareStatement("insert into users(login, passwd, email, gender, birth_date) values (?,?,?,?,?)");
+            insertUser.setString(1, login);
+            insertUser.setString(2, passwd);
+            insertUser.setString(3, email);
+            insertUser.setBoolean(4, gender);
+            insertUser.setDate(5, birthDate);
+            return insertUser.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
 }

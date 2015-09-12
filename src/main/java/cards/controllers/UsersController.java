@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by alexandra on 9/9/15.
@@ -26,6 +26,8 @@ public class UsersController {
 
     @RequestMapping(value = "/user", method = RequestMethod.POST)
     public ResultMessage addUser(String login, String passwd, String email, boolean gender, Date birthDate){
+
+        System.out.println(birthDate);
 
         if(Users.addUser(login, passwd, email, gender, birthDate)){
             return new ResultMessage("ok", "user created", null);
