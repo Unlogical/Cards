@@ -34,14 +34,16 @@ public class Users {
             ResultSet resultSet = connection.createStatement().executeQuery("select * from users where login='" + login + "'");
             while(resultSet.next()){
                 String email = resultSet.getString("email");
-                System.out.println(email);
+                Date birthdate = resultSet.getDate("birth_date");
+                Boolean gender = resultSet.getBoolean("gender");
+                return new User(login, email, gender, birthdate);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
+         return null;
 
-        return new User(login, login + "@lol.com", true, new Date(System.currentTimeMillis()));
     }
 
     public static boolean addUser(String login, String passwd, String email, boolean gender, Date birthDate) {
