@@ -16,17 +16,21 @@ import java.util.Date;
 public class UsersController {
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public User getUser(String login){
-        return Users.getUser(login);
+    public ResultMessage getUser(String login){
+        User user = Users.getUser(login);
+        if(user != null){
+            return new ResultMessage("ok", "user", user);
+        }
+        return new ResultMessage("fail", "user not found", null);
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.POST)
     public ResultMessage addUser(String login, String passwd, String email, boolean gender, Date birthDate){
 
         if(Users.addUser(login, passwd, email, gender, birthDate)){
-            return new ResultMessage("ok", "user created");
+            return new ResultMessage("ok", "user created", null);
         }
-        return new ResultMessage("fail", "user not created");
+        return new ResultMessage("fail", "user not created", null);
     }
 
 

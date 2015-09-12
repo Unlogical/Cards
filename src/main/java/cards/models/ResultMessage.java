@@ -7,10 +7,12 @@ public class ResultMessage {
 
     private final String status;
     private final String message;
+    private final Object data;
 
-    public ResultMessage(String status, String message) {
+    public ResultMessage(String status, String message, Object data) {
         this.status = status;
         this.message = message;
+        this.data = data;
     }
 
     public String getStatus() {
@@ -19,5 +21,9 @@ public class ResultMessage {
 
     public String getMessage() {
         return message;
+    }
+
+    public Object getData() {
+        return data;
     }
 }
