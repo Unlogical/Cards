@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.sql.Date;
-
 /**
  * Created by alexandra on 9/9/15.
  */
@@ -30,6 +28,15 @@ public class UsersController {
             return new ResultMessage("ok", "user created", null);
         }
         return new ResultMessage("fail", "user not created", null);
+    }
+
+    public ResultMessage signin(String login, String password){
+        // 1. Найти такой логин
+        // 2. Сравнить пароли
+        // 3. Если все хорошо,то выполнить вход
+        // 4. Оставатьься в системе
+
+        return null;
     }
 
 
