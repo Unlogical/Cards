@@ -32,6 +32,7 @@ public class UsersController {
 
     @RequestMapping(value = "/signin", method = RequestMethod.POST)
     public ResultMessage signin(String login, String password){
+        System.out.println("User signin: " + login + ":"+password);
         if(Users.checkPassword(login, password)){
             return new ResultMessage("ok", "Success", null);
         }
