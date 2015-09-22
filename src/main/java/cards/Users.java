@@ -55,4 +55,22 @@ public class Users {
         return false;
     }
 
+    public static boolean checkPassword(String login, String password){
+        String passwordHash = sha256Hex(password);
+        try {
+            PreparedStatement checkPasswd = connection.prepareStatement("select passwd from user where login=?");
+            checkPasswd.setString(1, login);
+            ResultSet resultSet = checkPasswd.executeQuery();
+
+            if(resultSet.next()) {
+                String basePasswordHash = resultSet.getString(1);
+                return basePasswordHash.equals(passwordHash);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 }
+

@@ -30,13 +30,16 @@ public class UsersController {
         return new ResultMessage("fail", "user not created", null);
     }
 
+    @RequestMapping(value = "/signin", method = RequestMethod.POST)
     public ResultMessage signin(String login, String password){
+        if(Users.checkPassword(login, password)){
+            return new ResultMessage("ok", "Success", null);
+        }
+        return  new ResultMessage("fail", "Fail", null);
         // 1. Найти такой логин
         // 2. Сравнить пароли
         // 3. Если все хорошо,то выполнить вход
         // 4. Оставатьься в системе
-
-        return null;
     }
 
 
