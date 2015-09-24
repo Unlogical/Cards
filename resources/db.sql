@@ -2,7 +2,7 @@ CREATE TABLE users(
   id bigserial,
   login varchar(32) UNIQUE,
   email varchar(32) NOT NULL UNIQUE,
-  passwd varchar(32) NOT NULL,
+  passwd varchar(64) NOT NULL,
   gender bool NOT NULL DEFAULT(true),
   
   CONSTRAINT users_pk PRIMARY KEY (id)
@@ -68,7 +68,7 @@ CREATE TABLE statistics(
 );
 
 
-INSERT INTO users(login, email, passwd, birth_date) VALUES('fluttershy', 'flutter@shy.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4');
+INSERT INTO users(login, email, passwd, birth_date) VALUES('fluttershy', 'flutter@shy.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b'); --passwd = 1
 INSERT INTO card_sets(title, author, description) VALUES('Птицы', 1, 'Выучи названия всех птиц!');
 INSERT INTO used_card_sets(user_id, card_set_id) VALUES(1,1);
 INSERT INTO cards(image_a, text_b, card_set_id, reversable) VALUES('http://nohost.com/1.jpg', 'Дятел', 1, false);
