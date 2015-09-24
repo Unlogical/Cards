@@ -62,11 +62,19 @@ CREATE TABLE statistics(
   user_id int,
   card_id int,
   
-  CONSTRAINT statistics_card_sets_pk PRIMARY KEY (user_id, card_id),
+  CONSTRAINT statistics_pk PRIMARY KEY (user_id, card_id),
   CONSTRAINT statistics_userid_fk FOREIGN KEY (user_id) REFERENCES users(id),
   CONSTRAINT statistics_cardid_fk FOREIGN KEY (card_id) REFERENCES cards(id)
 );
 
+CREATE TABLE sessions(
+  user_id int,
+  session_id int NOT NULL,
+  started_at date NOT NULL DEFAULT(now()),
+
+  CONSTRAINT sessions_pk PRIMARY KEY (session_id),
+  CONSTRAINT sessions_userid_fk FOREIGN KEY (user_id) REFERENCES users(id)
+);
 
 INSERT INTO users(login, email, passwd, birth_date) VALUES('fluttershy', 'flutter@shy.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b'); --passwd = 1
 INSERT INTO card_sets(title, author, description) VALUES('Птицы', 1, 'Выучи названия всех птиц!');
