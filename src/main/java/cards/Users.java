@@ -11,25 +11,6 @@ import static org.apache.commons.codec.digest.DigestUtils.sha256Hex;
  */
 public class Users {
 
-    private static ConnectionPool connectionPool = connect("jdbc:postgresql://192.168.56.101/resu_db", "resu", "resu");
-
-    private static ConnectionPool connect(String connectionString, String username, String password){
-        ConnectionPool pool = null;
-        try {
-            Class.forName("org.postgresql.Driver");
-            pool = new ConnectionPool();
-            pool.setUrl(connectionString);
-            pool.setUser(username);
-            pool.setPassword(password);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return pool;
-
-    }
-
     public static User getUser(String login){
 
         try {
