@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.SQLException;
+
+import static cards.SessionManager.getSessionManager;
+
 /**
  * Created by alexandra on 9/9/15.
  */
@@ -34,14 +38,16 @@ public class UsersController {
     public ResultMessage signin(String login, String password){
         System.out.println("User signin: " + login + ":"+password);
         if(Users.checkPassword(login, password)){
-            return new ResultMessage("ok", "Success", null);
+            try {
+                String sessionId = getSessionManager().createSession(login);
+                System.out.println("User signin success with session " + sessionId);
+                return new ResultMessage("ok", "Success", sessionId);
+            } catch (SQLException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
         }
+        System.out.println("User signin failed");
         return  new ResultMessage("fail", "Fail", null);
-        // 1. Найти такой логин
-        // 2. Сравнить пароли
-        // 3. Если все хорошо,то выполнить вход
-        // 4. Оставатьься в системе
     }
-
 
 }

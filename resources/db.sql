@@ -69,7 +69,7 @@ CREATE TABLE statistics(
 
 CREATE TABLE sessions(
   user_id int,
-  session_id int NOT NULL,
+  session_id varchar(64) NOT NULL,
   started_at date NOT NULL DEFAULT(now()),
 
   CONSTRAINT sessions_pk PRIMARY KEY (session_id),
