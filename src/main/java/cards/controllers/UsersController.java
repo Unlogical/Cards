@@ -29,8 +29,8 @@ public class UsersController {
         return new ResultMessage("fail", "user not found", null);
     }
 
-    @RequestMapping(value = "/user", method = RequestMethod.POST)
-    public ResultMessage addUser(String login, String passwd, String email, boolean gender){
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    public ResultMessage signUp(String login, String passwd, String email, boolean gender){
         if(Users.addUser(login, passwd, email, gender)){
             return new ResultMessage("ok", "user created", null);
         }
