@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 
 import static cards.SessionManager.getSessionManager;
@@ -36,12 +38,13 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/signin", method = RequestMethod.POST)
-    public ResultMessage signIn(String login, String password){
-        System.out.println("User signin: " + login + ":"+password);
+    public ResultMessage signIn(HttpServletResponse response, String login, String password){
+        System.out.println("User signin: " + login + ":" + password);
         if(Users.checkPassword(login, password)){
             try {
                 String sessionId = getSessionManager().createSession(login);
                 System.out.println("User signin success with session " + sessionId);
+                response.addCookie(new Cookie("sid", sessionId));
                 return new ResultMessage("ok", "Success", sessionId);
             } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
@@ -50,9 +53,6 @@ public class UsersController {
         System.out.println("User signin failed");
         return  new ResultMessage("fail", "Fail", null);
     }
-
-//    HttpServletResponse response
-//    response.addCookie(new Cookie("foo", "bar"));
 
     @RequestMapping(value = "/signout", method = RequestMethod.GET)
     public void signOut(@CookieValue("sid") String sessionId){
