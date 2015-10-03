@@ -39,4 +39,14 @@ public class SessionManager {
         return -1;
     }
 
+    public int sessionToId(String sessionId) throws SQLException, ClassNotFoundException {
+        Connection connection = getConnectionProvider().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("select user_id from sessions where session_id = ?");
+        preparedStatement.setString(1,sessionId);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()){
+            return resultSet.getInt("user_id");
+        }
+        return  -1;
+    }
 }
