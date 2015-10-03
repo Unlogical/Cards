@@ -3,6 +3,7 @@ package cards.controllers;
 import cards.Users;
 import cards.models.ResultMessage;
 import cards.models.User;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,7 +36,7 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/signin", method = RequestMethod.POST)
-    public ResultMessage signin(String login, String password){
+    public ResultMessage signIn(String login, String password){
         System.out.println("User signin: " + login + ":"+password);
         if(Users.checkPassword(login, password)){
             try {
@@ -48,6 +49,18 @@ public class UsersController {
         }
         System.out.println("User signin failed");
         return  new ResultMessage("fail", "Fail", null);
+    }
+
+//    HttpServletResponse response
+//    response.addCookie(new Cookie("foo", "bar"));
+
+    @RequestMapping(value = "/signout", method = RequestMethod.GET)
+    public void signOut(@CookieValue("sid") String sessionId){
+        try {
+            getSessionManager().deleteSession(sessionId);
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 }
