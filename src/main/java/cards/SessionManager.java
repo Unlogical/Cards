@@ -28,6 +28,20 @@ public class SessionManager {
         return sessionID;
     }
 
+    public void deleteSession(String sessionId) throws SQLException, ClassNotFoundException {
+        Connection connection = getConnectionProvider().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("delete from sessions where session_id = ?");
+        preparedStatement.setString(1,sessionId);
+        preparedStatement.execute();
+    }
+
+    public void deleteAllUserSessions(int userId) throws SQLException, ClassNotFoundException {
+        Connection connection = getConnectionProvider().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("delete from sessions where user_id = ?");
+        preparedStatement.setInt(1,userId);
+        preparedStatement.execute();
+    }
+
     private int loginToId(String login) throws SQLException, ClassNotFoundException {
         Connection cnct = getConnectionProvider().getConnection();
         PreparedStatement preparedStatement = cnct.prepareStatement("select id from users where login = ?");
