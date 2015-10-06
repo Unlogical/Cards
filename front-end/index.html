@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="style/style.css" />
     <link rel="shortcut icon" href="style/images/icon.gif" />
+    <script type="text/javascript" src="javascript/login.js"></script> 
 <!--    <link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Ledger&subset=latin,cyrillic' rel='stylesheet' type='text/css'>-->
     <title>Cards</title>
@@ -21,7 +22,34 @@
           <li>Third item. Very lovely and beautiful</li>
         </ul>
       </div> 
-      <button class="right bigFriendlyButton">Registration</button>
-      <button class="right button">Enter</button>
+      <div class="regForm" id="regform">
+        <div class="topform">
+          <div class="formheader"><h5>Registration</h5></div>
+          <button class="closebutton" id="hidereg"></button>
+        </div>
+        <form action="http://localhost:8080/user" method="POST">
+          <input type="text" name="login" placeholder="login">
+          <input type="password" name="passwd" placeholder="password">
+          <input type="email" name="email" placeholder="email">
+          <input type="date" name="birthDate" placeholder="birth date">
+          <input type="checkbox" name="gender" checked>
+          
+          <input type="submit" value="Зарегистрироваться">
+        </form>
+      </div>
+      <button class="right bigFriendlyButton" id = "reg">Registration</button>
+      <div class="enterForm" id="enterform">
+          <div class="topform">
+            <div class="formheader"><h5>Enter</h5></div>
+            <button class="closebutton" id="hide"></button>
+          </div>
+         <form action="http://localhost:8080/user" method="POST">
+          <input type="text" name="login" placeholder="login">
+          <input type="password" name="passwd" placeholder="password">
+      
+          <input type="submit" value="Войти">
+        </form> 
+        </div>
+      <button class="right button" id="enter">Enter</button>
     </div> 
   </body>
