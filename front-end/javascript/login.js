@@ -1,15 +1,11 @@
-function hideOnclick() {
-  var formStyle = document.getElementById("enterform").style  
-  formStyle.visibility = "hidden" 
-  formStyle.opacity = "0"
-  return false
-}      
-function hideRegOnclick() {
-  var formStyle = document.getElementById("regform").style  
-  formStyle.visibility = "hidden" 
-  formStyle.opacity = "0"
-  return false
-}  
+function hideForm(id){
+  return function(){
+    var formStyle = document.getElementById(id).style
+    formStyle.visibility = "hidden" 
+    formStyle.opacity = "0"
+    return false
+  }
+}
 
 function enterLinkOnclick() {
   //hideRegOnclick
@@ -28,16 +24,16 @@ function reglinkOnclick() {
                                      
 function init() {
   document.getElementById("enter").onclick = function(){
-    hideRegOnclick()
+    hideForm("regform")()
     enterLinkOnclick()
   }
-  document.getElementById("hide").onclick = hideOnclick
+  document.getElementById("hide").onclick = hideForm("enterform")
 
   document.getElementById("reg").onclick = function(){
-    hideOnclick()
+    hideForm("enterform")()
     reglinkOnclick()
   }
-  document.getElementById("hidereg").onclick = hideRegOnclick
+  document.getElementById("hidereg").onclick = hideForm("regform")
 
 }
 window.addEventListener('load',init,false)
