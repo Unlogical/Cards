@@ -24,12 +24,20 @@ function reglinkOnclick() {
   formStyle.visibility = "visible" 
   formStyle.opacity = "1"
   return false
-}  
+}
                                      
 function init() {
-  document.getElementById("enter").onclick = enterLinkOnclick
+  document.getElementById("enter").onclick = function(){
+    hideRegOnclick()
+    enterLinkOnclick()
+  }
   document.getElementById("hide").onclick = hideOnclick
-  document.getElementById("reg").onclick = reglinkOnclick
+
+  document.getElementById("reg").onclick = function(){
+    hideOnclick()
+    reglinkOnclick()
+  }
   document.getElementById("hidereg").onclick = hideRegOnclick
+
 }
 window.addEventListener('load',init,false)
