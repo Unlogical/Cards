@@ -17,12 +17,12 @@ import static org.apache.commons.codec.digest.DigestUtils.sha256Hex;
  */
 public class Users {
 
-    public static User getUser(String login){
+    public static User getUser(String login) {
 
         try {
-            PreparedStatement getuser = connection.prepareStatement("select * from users where login =? ");
+            PreparedStatement getuser = getConnectionProvider().getConnection().prepareStatement("select * from users where login =? ");
             getuser.setString(1,login);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 
