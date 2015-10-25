@@ -36,4 +36,25 @@ function init() {
   document.getElementById("hidereg").onclick = hideForm("regform")
 
 }
+
 window.addEventListener('load',init,false)
+
+function submitRegister(){
+  console.log("sending register");
+  $.ajax({
+    url: "http://localhost:8080/fakesignup",
+    type: "POST",
+    dataType : "json",
+    data: {login: "lol", passwd: "123", email: "q@q.com", gender: false},
+    success: function(data) {
+      console.log("FUCK YOU");     
+      console.log(data);
+    },
+    error: function(a,b,c){
+      console.log("AAA"); 
+      console.log(a)
+      console.log(b)
+      console.log(c)
+    }
+  })
+}
