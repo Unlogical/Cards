@@ -63,4 +63,9 @@ public class UsersController {
         }
     }
 
+    @RequestMapping(value = "/fakesignup", method = RequestMethod.POST)
+    public ResultMessage fakeSignUp(String login, String passwd, String email, boolean gender){
+        return new ResultMessage("OK", "Fine", null);
+    }
+
 }
