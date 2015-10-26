@@ -46,6 +46,15 @@ a {
   padding: 10px 19px;
 }
 
+.content p {
+  display: block;
+  text-align: center;
+  padding: 5px 0;
+  position: relative;
+  top: -30px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
 /*IMAGES*/
 .image{
   width: 240px;
