@@ -15,6 +15,7 @@
 .mainImage{
   height: 300px;
   width: 400px;
+  max-width: 40%;
   display: block;
   float: left;
   margin: 0 10px 10px 10px;
@@ -23,12 +24,12 @@
   background-image: url("images/main.jpg");
 }
 
-.right {
-  float: right;
-}
 
-.rightText{
-  width: 400px;
+
+.rightText,.right{
+  float: right;
+  width: 50%;
+  background-color: #10adc4;
   margin-right: 10px;
 }
 
