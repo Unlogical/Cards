@@ -47,7 +47,7 @@ function submitRegister(){
     dataType : "json",
     data: {login: "lol", passwd: "123", email: "q@q.com", gender: false},
     success: function(data) {
-      console.log("FUCK YOU");     
+      console.log("SUCCESS");     
       console.log(data);
     },
     error: function(a,b,c){

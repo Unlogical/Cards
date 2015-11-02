@@ -28,3 +28,65 @@
   color: rgba(255, 255, 255, 0.7);
   font-weight: bold;
 }
+
+
+.side {
+  width: 230px;
+  padding: 10px 10px;
+  float: left;
+}
+
+
+._image {
+  height: 150px;
+  width: 200px;
+}
+
+
+#add {
+ background-color: #ffffaa;
+}
+
+.top {
+  height: 20px;
+}
+
+.check {
+  padding: 10px;
+}
+
+.add_button {
+  float: right;
+  margin: -10px 10px 10px 10px;
+  padding: 5px;
+}
+
+.add_block {
+  visibility: hidden;
+  opacity: 0;
+  transition: 1s 0s;
+  z-index: 2; 
+  width:500px; 
+  position: fixed;
+  right: 50%;
+  top: 50%;
+  margin-top: -100px;
+  margin-right: -160px; 
+  /*box-shadow: 0 0 500px 200px rgb(10,10,10); */
+  border: 1px solid rgb(235,245,255); 
+  background-color: rgb(255,255,255); 
+}
+
+.closebutton {
+  border:1px solid rgb(255,255,255);
+  background-color: rgb(255,255,255);
+  background-image: url("images/close.png");
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  right: 0;
+  top: 0px;
+  height:20px; 
+  width:20px; 
+  float:right      
+}

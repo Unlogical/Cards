@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="style/images/icon.gif" />
     <link rel="stylesheet" href="style/font-awesome-4.4.0/css/font-awesome.min.css">
     <script type="text/javascript" src="javascript/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="javascript/login.js"></script>  
+    <script type="text/javascript" src="javascript/add_card.js"></script>  
     <title>Создать набор</title>
   </head>
   <body>
@@ -33,9 +33,28 @@
           <div class="card_image img3"></div> </a>
           <p class="card_text">карточка</p>     
         </li>
-        <li ><a href="add.html" >
-        <div class="card_image addImg"> <i class="fa fa-plus add_card_icon fa-4x"></i></div> </a>  
+        <li id="add">
+        <div class="card_image addImg"> <i class="fa fa-plus add_card_icon fa-4x"></i></div> 
         <p class="add_card_text card_text">Добавить карточку</p>     
       </li> 
       </ul>
+       <div class="add_block" id="add_block">
+          <div class="top">
+            <button class="closebutton" id="hide"></button>
+          </div>
+         <div class="side">
+           <p>Сторона 1</p>
+           <div class="_image addImg"> <i class="fa fa-plus add_card_icon fa-4x"></i></div> </a>  
+           <p class="add_card_text card_text">Добавить изображение</p> 
+           <input type="text" placeholder="текст" />        
+         </div>
+         <div class="side">
+           <p>Сторона 2</p>
+           <div class="_image addImg"> <i class="fa fa-plus add_card_icon fa-4x"></i></div> </a>  
+           <p class="add_card_text card_text">Добавить изображение</p> 
+           <input type="text" placeholder="текст" />        
+         </div>
+         <div class="check"><input type="checkbox" /> Вопрос-ответ</div>
+         <button class="add_button">Добавить карточку</button>
+        </div>
     </div>
