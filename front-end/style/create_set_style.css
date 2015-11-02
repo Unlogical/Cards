@@ -1,0 +1,30 @@
+.card_image{
+  width: 200px;
+  height: 150px;
+  background-size: cover;
+  background-position: center center;
+  
+}
+
+.add_card_icon {
+  color: rgba(255, 255, 255, 0.7);
+  position: relative;
+  top: 30px;
+  left: 75px;
+}
+
+.card_text {
+  display: block;
+  text-align: center;
+  padding: 5px 0;
+  position: relative;
+  top: -90px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.add_card_text{
+  top: -60px;
+  background-color: rgba(10,10,10, 0);
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: bold;
+}

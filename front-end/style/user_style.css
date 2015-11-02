@@ -49,7 +49,7 @@ a, a i {
   
 }
 
-.content ul p {
+.content ul .set {
   display: block;
   text-align: center;
   padding: 5px 0;
