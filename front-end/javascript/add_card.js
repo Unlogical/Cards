@@ -15,6 +15,6 @@ function hideAdd(){
 window.addEventListener('load',init,false)
 
 function init() {
-  document.getElementById("add").onclick = addCardOnclick()
-  document.getElementById("hide").onclick = hideAdd()
+  document.getElementById("add").onclick = addCardOnclick
+  document.getElementById("hide").onclick = hideAdd
 }
