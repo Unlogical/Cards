@@ -1,0 +1,28 @@
+
+
+
+
+.creation_block {
+  background-color: #4400a1;
+  padding: 20px 0;
+}
+
+
+.creation_link {
+  font-size: 25px;
+  background-color: #449fa1;
+}
+
+
+
+.choose_header {
+  background-color: #0d8a11;
+   padding: 10px 0;
+  
+}
+
+.choose_text {
+  float: left;
+  font-size: 20px;
+  margin-right: 30px;
+}
