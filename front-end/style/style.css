@@ -41,19 +41,19 @@
 .bigFriendlyButton{
 	height: 50px;
 	width: 200px;
-	border: 1px solid #66f2c0;
-	background-color: #66f2c0;
+	border: 1px solid #55e1af;
+	background-color: #55e1af;
 	color: #fff;
 }
 
 .bigFriendlyButton:hover {
-	border: 3px solid #55e1af;
-	background-color: #55e1af;
+	border: 3px solid #44d09e;
+	background-color: #44d09e;
 }
 
 .bigFriendlyButton:active {
-  border-left: 3px solid #33bf8d;
-  border-bottom: 3px solid #33bf8d;
+  border-left: 3px solid #22ae7c;
+  border-bottom: 3px solid #22ae7c;
 }
 
 

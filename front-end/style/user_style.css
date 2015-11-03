@@ -56,7 +56,7 @@ a, a i {
   text-align: center;
   padding: 5px 0;
   position: relative;
-  top: -30px;
+  top: -28px;
   background-color: rgba(255, 255, 255, 0.7);
 }
 
@@ -84,7 +84,7 @@ a, a i {
 .content li:hover .icons {
   opacity: 1;
   visibility: visible;
-  transition: 0.3s 0.2s;
+  transition: 0.3s 0.1s;
 }
 
 
