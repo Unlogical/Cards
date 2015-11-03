@@ -14,7 +14,10 @@
 }
 
 .card_text {
-  display: block;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   text-align: center;
   padding: 5px 0;
   position: relative;

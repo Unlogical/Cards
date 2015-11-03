@@ -37,7 +37,7 @@ a, a i {
 
 /*CONTENT*/
 .center {
-	width: 90%;
+	width: 95%;
 	margin-left: 5%;
 }
 
@@ -46,11 +46,13 @@ a, a i {
   display: block;
   float: left;
   padding: 10px 19px;
-  
 }
 
 .content ul .set {
-  display: block;
+  width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   text-align: center;
   padding: 5px 0;
   position: relative;

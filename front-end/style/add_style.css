@@ -22,17 +22,21 @@
 
 
 .category_block{
+  width: 100%;
   padding: 20px 0;
   float: left;
 }
 
+.category_block ul {
+    width: 100%;
+    height: 230px;
+}
+
 .other {
   display:block; 
-  width: 240px;
-  height: 180px;
+  position: relative;
 }
 
 .other a {
-  position: relative;
-  top: 160px;
+  
 }
