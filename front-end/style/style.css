@@ -24,8 +24,6 @@
   background-image: url("images/main.jpg");
 }
 
-
-
 .rightText,.right{
   float: right;
   width: 50%;
@@ -33,6 +31,7 @@
 }
 
 .bigFriendlyButton, .button{
+  cursor: pointer;
   float: right;
   margin: 10px 10px 10px 200px;
  
