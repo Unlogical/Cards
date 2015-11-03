@@ -35,26 +35,45 @@
 .bigFriendlyButton, .button{
   float: right;
   margin: 10px 10px 10px 200px;
+ 
 }
 
 .bigFriendlyButton{
 	height: 50px;
 	width: 200px;
-	border: 1px solid #88e9c0;
-	background-color: #88e9c0;
+	border: 1px solid #66f2c0;
+	background-color: #66f2c0;
 	color: #fff;
 }
+
+.bigFriendlyButton:hover {
+	border: 3px solid #55e1af;
+	background-color: #55e1af;
+}
+
+.bigFriendlyButton:active {
+  border-left: 3px solid #33bf8d;
+  border-bottom: 3px solid #33bf8d;
+}
+
 
 .button {
    height: 30px;
 	width: 100px;
-	background-color: #2291ff;
-	border: 1px solid #2291ff;
+	background-color: #44a2ff;
+	border: 3px solid #44a2ff;
 	color: #fff;
 }
 
+.button:hover {
+	background-color: #2291ff;
+	border: 1px solid #2291ff;
+}
 
-
+.button:active {
+  border-left: 3px solid #006fdd;
+  border-bottom: 3px solid #006fdd;
+}
 
 .enterForm, .regForm {
   visibility: hidden;
