@@ -40,11 +40,17 @@
 .bigFriendlyButton{
 	height: 50px;
 	width: 200px;
+	border: 1px solid #88e9c0;
+	background-color: #88e9c0;
+	color: #fff;
 }
 
 .button {
    height: 30px;
 	width: 100px;
+	background-color: #2291ff;
+	border: 1px solid #2291ff;
+	color: #fff;
 }
 
 
@@ -60,11 +66,28 @@
   right: 50%;
   top: 50%;
   margin-top: -100px;
-  margin-right: -160px; 
-  /*box-shadow: 0 0 500px 200px rgb(10,10,10); */
+  margin-right: -180px; 
+  padding: 0  0 20px 20px;
+
   border: 1px solid rgb(235,245,255); 
   background-color: rgb(255,255,255); 
 }
+
+.regForm {
+   box-shadow: 0 0 15px 5px  #99fad1; 
+}
+
+.enterForm{
+  box-shadow: 0 0 15px 5px  #33a2ff;
+}
+
+.enterForm input , .regForm input {
+  margin-bottom: 5px;
+  display: block;
+  position: relative;
+  left: 50px;
+}
+
 
 .closebutton {
   border:1px solid rgb(255,255,255);
