@@ -1,0 +1,72 @@
+.center1 {
+    margin: 0 50%;
+}
+
+.content  {
+  position: relative;
+  right: 250px;
+}
+
+.card_block {
+  position: relative;
+  top: 20px;
+}
+
+.card_text {
+  width: 500px;
+  height: 100%;
+  text-align: center;
+  padding: 5px 0;
+  position: relative;
+  top: -400px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.card_image {
+  width: 500px;
+  height: 400px;
+  background-color: #fa78ac;
+  background-size: cover;
+  background-position: center center;
+}
+
+
+.flip {
+  width: 500px;
+  padding: 30px 0;
+  text-align: center;
+  background-color: #99fad1;
+  color: #0069dd;
+}
+
+.flip:hover {
+  background-color: #aafce2;
+}
+
+.flip i {
+  display: inline-block;
+}
+
+.buttons {
+	width: 500px;
+	margin-top: 30px;
+   float: left;
+}
+
+.buttons button {
+  width: 100px;
+  margin: 10px;
+}
+
+
+.buttons i {
+  margin: 2px;
+}
+
+.cimg1 {
+  background-image: url("images/who.jpg");
+}
+
+.cimg2 {
+  background-image: url("images/cat.jpg");
+}

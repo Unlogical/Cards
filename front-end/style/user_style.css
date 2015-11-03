@@ -60,7 +60,7 @@ a, a i {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.content .addText {
+.addText {
   top: -60px;
   text-align: center;
   padding: 5px 0;
@@ -87,10 +87,6 @@ a, a i {
   transition: 0.3s 0.2s;
 }
 
-.icons .close:hover {
-  cursor: pointer;
-  color: #80f;
-}
 
 /*IMAGES*/
 .image{
