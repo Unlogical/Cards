@@ -54,6 +54,10 @@
   padding: 10px;
 }
 
+.add:hover, .closebutton:hover {
+  cursor: pointer;
+}
+
 .add_button {
   float: right;
   margin: -10px 10px 10px 10px;
@@ -63,7 +67,7 @@
 .add_block {
   visibility: hidden;
   opacity: 0;
-  transition: 1s 0s;
+  transition: 0.4s 0s;
   z-index: 2; 
   width:500px; 
   position: fixed;
