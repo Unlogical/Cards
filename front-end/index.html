@@ -25,11 +25,11 @@
       </div> 
       <div class="regForm" id="regform">
         <div class="topform">
-          <div class="formheader"><h5>Registration</h5></div>
+          <div class="formheader"><h5>Sign up</h5></div>
           <i class="fa fa-times closebutton" id="hidereg"></i>
         </div>
         <form action="http://localhost:8080/user" method="POST">
-          <input type="text" name="login" placeholder="login">
+          <input type="text" name="login" placeholder="login" id="up_focused" >
           <input type="password" name="passwd" placeholder="password">
           <input type="email" name="email" placeholder="email">
           <input type="date" name="birthDate" placeholder="birth date">
@@ -38,18 +38,18 @@
           <input class="reg_input_button" type="submit" value="Зарегистрироваться" onclick="submitRegister(); return false;">
         </form>
       </div>
-      <div class="right"><button class="bigFriendlyButton" id = "reg">Registration</button></div>
+      <div class="right"><button class="bigFriendlyButton" id = "reg">Sign up</button></div>
       <div class="enterForm" id="enterform">
           <div class="topform">
-            <div class="formheader"><h5>Enter</h5></div>
+            <div class="formheader"><h5>Sign in</h5></div>
             <i class="fa fa-times closebutton" id="hide"></i>
           </div>
          <form action="http://localhost:8080/user" method="POST">
-          <input type="text" name="login" placeholder="login">
+          <input type="text" name="login" placeholder="login" id="in_focused">
           <input type="password" name="passwd" placeholder="password">
           <input class="enter_input_button" type="submit" value="Войти">
         </form> 
         </div>
-      <div class="right"><button class="button" id="enter">Enter</button></div>
+      <div class="right"><button class="button" id="enter">Sign in</button></div>
     </div> 
   </body>

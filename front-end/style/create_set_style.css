@@ -1,3 +1,14 @@
+.allin {
+  background-color: rgba(0,0,0,0);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width:100%; 
+  height: 100%;
+  display: none;
+}
+
+
 .card_image{
   width: 200px;
   height: 150px;
@@ -75,7 +86,20 @@
 .add_button {
   float: right;
   margin: -10px 10px 10px 10px;
-  padding: 5px;
+  padding: 2px;
+  border: 3px solid #55e1af;
+  background-color: #55e1af;
+  color: #fff;
+}
+
+.add_button:hover {
+  border: 3px solid #44d09e;
+  background-color: #44d09e;
+}
+
+.add_button:active {
+  border-left: 3px solid #22ae7c;
+  border-top: 3px solid #22ae7c;
 }
 
 .add_block {
@@ -87,21 +111,17 @@
   position: fixed;
   right: 50%;
   top: 50%;
-  margin-top: -100px;
-  margin-right: -160px; 
-  /*box-shadow: 0 0 500px 200px rgb(10,10,10); */
+  margin-top: -200px;
+  margin-right: -250px; 
+  box-shadow: 0 0 15px 5px  #99fad1; 
   border: 1px solid rgb(235,245,255); 
   background-color: rgb(255,255,255); 
 }
 
 .closebutton {
-  border:1px solid rgb(255,255,255);
-  background-color: rgb(255,255,255);
-  background-image: url("images/close.png");
-  background-position: center center;
-  background-size: cover;
+  color: #777;
   position: relative;
-  right: 0;
+  right: -5px;
   top: 0px;
   height:20px; 
   width:20px; 

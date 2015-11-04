@@ -7,10 +7,13 @@ function hideForm(id){
   }
 }
 
-function linkOnclick(id) {
+function linkOnclick(id, input) {
   var formStyle = document.getElementById(id).style  
+  var focused = document.getElementById(input)  
   formStyle.visibility = "visible" 
   formStyle.opacity = "1"
+  focused.focus()
+  focused.select()
   return false
 }  
 
@@ -30,7 +33,7 @@ function light() {
 function init() {
   document.getElementById("enter").onclick = function(){
     hideForm("regform")
-    linkOnclick("enterform")
+    linkOnclick("enterform", "in_focused")
     dark()
   }
   document.getElementById("hide").onclick = function(){
@@ -40,7 +43,7 @@ function init() {
 
   document.getElementById("reg").onclick = function(){
     hideForm("enterform")
-    linkOnclick("regform")
+    linkOnclick("regform", "up_focused")
     dark()
   }
   document.getElementById("hidereg").onclick = function () {
