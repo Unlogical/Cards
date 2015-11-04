@@ -12,9 +12,19 @@
   margin: 0 240px 0 240px;
 }
 
+.allin {
+  background-color: rgba(0,0,0,0);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width:100%; 
+  height: 100%;
+  display: none;
+}
+
 .mainImage{
-  height: 300px;
-  width: 400px;
+  height: 450px;
+  width: 600px;
   max-width: 40%;
   display: block;
   float: left;
@@ -24,13 +34,15 @@
   background-image: url("images/main.jpg");
 }
 
-.rightText,.right{
+.rightText,
+.right{
   float: right;
   width: 50%;
   margin-right: 10px;
 }
 
-.bigFriendlyButton, .button{
+.bigFriendlyButton, 
+.button{
   cursor: pointer;
   float: right;
   margin: 10px 10px 10px 200px;
@@ -74,7 +86,8 @@
   border-top: 3px solid #006fdd;
 }
 
-.enterForm, .regForm {
+.enterForm, 
+.regForm {
   visibility: hidden;
   opacity: 0;
   transition: 0.4s 0s;
@@ -99,25 +112,36 @@
   box-shadow: 0 0 15px 5px  #33a2ff;
 }
 
-.enterForm input , .regForm input {
+.enterForm input , 
+.regForm input {
   margin-bottom: 5px;
   display: block;
   position: relative;
   left: 50px;
 }
 
+.reg_input_button {
+  border: 1px solid #55e1af;
+  background-color: #55e1af;
+  color: #fff;
+}
+
+.enter_input_button {
+  border: 1px solid #2291ff;
+  background-color: #2291ff;
+  color: #fff;
+}
+
 
 .closebutton {
-  border:1px solid rgb(255,255,255);
-  background-color: rgb(255,255,255);
-  background-image: url("images/close.png");
-  background-position: center center;
-  background-size: cover;
+  color: #777;
   position: relative;
   right: 0;
   top: -60px;
-  height:20px; 
-  width:20px; 
+  padding:5px; 
   float:right      
 }
 
+.closebutton:hover {
+  cursor: pointer;
+}

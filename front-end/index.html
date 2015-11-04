@@ -4,12 +4,14 @@
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="style/style.css" />
     <link rel="shortcut icon" href="style/images/icon.gif" />
+    <link rel="stylesheet" href="style/font-awesome-4.4.0/css/font-awesome.min.css">
     <script type="text/javascript" src="javascript/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="javascript/login.js"></script>  
     <title>Cards</title>
   </head>
   <body>
-    <div class="header">Some BIG text </div>    
+  <div class="allin" id="allin"></div>
+    <div class="header">Some BIG text</div>    
     <div class="center">  
       <div class="mainImage"></div>
       <div class="right rightText">
@@ -24,7 +26,7 @@
       <div class="regForm" id="regform">
         <div class="topform">
           <div class="formheader"><h5>Registration</h5></div>
-          <button class="closebutton" id="hidereg"></button>
+          <i class="fa fa-times closebutton" id="hidereg"></i>
         </div>
         <form action="http://localhost:8080/user" method="POST">
           <input type="text" name="login" placeholder="login">
@@ -33,19 +35,19 @@
           <input type="date" name="birthDate" placeholder="birth date">
           <input type="checkbox" name="gender" checked>
           
-          <input type="submit" value="Зарегистрироваться" onclick="submitRegister(); return false;">
+          <input class="reg_input_button" type="submit" value="Зарегистрироваться" onclick="submitRegister(); return false;">
         </form>
       </div>
       <div class="right"><button class="bigFriendlyButton" id = "reg">Registration</button></div>
       <div class="enterForm" id="enterform">
           <div class="topform">
             <div class="formheader"><h5>Enter</h5></div>
-            <button class="closebutton" id="hide"></button>
+            <i class="fa fa-times closebutton" id="hide"></i>
           </div>
          <form action="http://localhost:8080/user" method="POST">
           <input type="text" name="login" placeholder="login">
           <input type="password" name="passwd" placeholder="password">
-          <input type="submit" value="Войти">
+          <input class="enter_input_button" type="submit" value="Войти">
         </form> 
         </div>
       <div class="right"><button class="button" id="enter">Enter</button></div>

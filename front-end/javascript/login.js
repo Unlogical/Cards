@@ -7,34 +7,46 @@ function hideForm(id){
   }
 }
 
-function enterLinkOnclick() {
-  //hideRegOnclick
-  var formStyle = document.getElementById("enterform").style  
+function linkOnclick(id) {
+  var formStyle = document.getElementById(id).style  
   formStyle.visibility = "visible" 
   formStyle.opacity = "1"
   return false
 }  
-function reglinkOnclick() {
-	//hideOnclick
-  var formStyle = document.getElementById("regform").style  
-  formStyle.visibility = "visible" 
-  formStyle.opacity = "1"
+
+function dark() {
+  var Background = document.getElementById("allin").style
+  Background.backgroundColor = "rgba(0,0,0,0.5)"
+  Background.display = "block"
   return false
 }
-                                     
+function light() {
+  var Background = document.getElementById("allin").style
+  Background.backgroundColor = "rgba(0,0,0,0)"
+  Background.display = "none"
+  return false
+}
+                               
 function init() {
   document.getElementById("enter").onclick = function(){
-    hideForm("regform")()
-    enterLinkOnclick()
+    hideForm("regform")
+    linkOnclick("enterform")
+    dark()
   }
-  document.getElementById("hide").onclick = hideForm("enterform")
+  document.getElementById("hide").onclick = function(){
+  	hideForm("enterform")()
+  	light()
+  }
 
   document.getElementById("reg").onclick = function(){
-    hideForm("enterform")()
-    reglinkOnclick()
+    hideForm("enterform")
+    linkOnclick("regform")
+    dark()
   }
-  document.getElementById("hidereg").onclick = hideForm("regform")
-
+  document.getElementById("hidereg").onclick = function () {
+  	 hideForm("regform")()
+    light()
+ }
 }
 
 window.addEventListener('load',init,false)
