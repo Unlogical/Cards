@@ -7,6 +7,7 @@ color: black;
 a, a i {
   text-decoration: none;
   color: #0069dd;
+  outline: none; 
 }
 
 
@@ -68,6 +69,15 @@ a, a i {
   background-color: rgba(10,10,10, 0);
   color: rgba(255, 255, 255, 0.7);
   font-weight: bold;
+}
+
+.addlink:hover  p, .addlink:hover i{
+  color: #fff;
+
+}
+
+.addlink:hover .image {
+  background-color: rgba(10,10,10, 0.4);
 }
 
 .content li .icons {
