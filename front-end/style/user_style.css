@@ -96,12 +96,16 @@ a, a i {
   transition: 0.3s 0.1s;
 }
 
+.content li:hover .set {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
 .content li .icons * {
   padding: 2px;
   margin: 0;
   display: block;
   float: right;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .content li .icons *:hover {
