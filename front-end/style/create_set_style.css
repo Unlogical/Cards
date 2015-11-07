@@ -8,6 +8,22 @@
   display: none;
 }
 
+.set_name {
+  background-color:  #fff;
+  border-right: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #000; 
+  font-size:20px;
+  margin-bottom:10px;
+  
+}
+ 
+.content>input {
+ position: relative;
+ left: 19px;
+}
+
 
 .card_image{
   width: 200px;
@@ -50,11 +66,15 @@
   font-weight: bold;
 }
 
-.add:hover  p, .add:hover i{
+.add:hover  p,
+.add:hover i
+.side:hover p,
+.side:hover i {
   color: #fff;
 }
 
-.add:hover .addImg {
+.add:hover .addImg, 
+.side:hover .addImg {
   background-color: rgba(10,10,10, 0.4);
 }
 
@@ -64,6 +84,23 @@
   float: left;
 }
 
+.side input {
+  width: 200px;
+  height: 50px;
+  border: 1px solid #aaa;
+  background-color: rgba(150,150,150,0.1);
+  position: relative;
+  top: -30px;
+}
+
+.side input:active {
+  background-color: #fff;
+  box-shadow: 0 0 2px 1px #888;
+}
+.side input:focus {
+  background-color: #fff;
+  box-shadow: 0 0 1px 1px #888;
+}
 
 ._image {
   height: 150px;
@@ -76,7 +113,10 @@
 }
 
 .check {
-  padding: 10px;
+  padding: 0  0 10px 10px;
+  float: left;
+  position: relative;
+
 }
 
 .add:hover, .closebutton:hover {
@@ -117,6 +157,7 @@
   border: 1px solid rgb(235,245,255); 
   background-color: rgb(255,255,255); 
 }
+
 
 .closebutton {
   color: #777;

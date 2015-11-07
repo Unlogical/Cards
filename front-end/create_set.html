@@ -21,7 +21,12 @@
       </ul>   
     </div>    
     <div class="center content"> 
+    <input type="text" class="set_name" placeholder="Название альбома" autofocus /> 
     <ul>
+      <li id="add_pic" class="add">
+        <div class="card_image addImg"> <i class="fa fa-plus add_card_icon fa-4x"></i></div> 
+        <p class="add_card_text">Добавить обложку альбома</p>     
+      </li> 
         <li><a href="#" >
           <div class="card_image img1"></div> </a> 
           <p class="card_text">Название карточки или нет</p>     
@@ -46,16 +51,15 @@
          <div class="side">
            <p>Сторона 1</p>
            <div class="_image addImg"> <i class="fa fa-plus add_card_icon fa-4x"></i></div>   
-           <p class="add_card_text card_text">Добавить изображение</p> 
-           <input type="text" placeholder="текст" />        
+           <p class="add_card_text">Добавить изображение</p> 
+           <input type="textarea"  placeholder="Добавить текст.." />        
          </div>
          <div class="side">
            <p>Сторона 2</p>
            <div class="_image addImg"> <i class="fa fa-plus add_card_icon fa-4x"></i></div>  
-           <p class="add_card_text card_text">Добавить изображение</p> 
+           <p class="add_card_text">Добавить изображение</p> 
            <input type="text" placeholder="текст" />        
          </div>
          <div class="check"><input type="checkbox" /> Вопрос-ответ</div>
          <button class="add_button">Добавить карточку</button>
         </div>
-    </div>
