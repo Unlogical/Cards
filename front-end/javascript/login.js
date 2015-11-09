@@ -40,6 +40,11 @@ function init() {
   	hideForm("enterform")()
   	light()
   }
+  document.getElementById("allin").onclick = function(){
+  	hideForm("enterform")()
+  	hideForm("regform")()
+  	light()
+  }
 
   document.getElementById("reg").onclick = function(){
     hideForm("enterform")

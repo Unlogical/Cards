@@ -46,7 +46,8 @@
   cursor: pointer;
   float: right;
   margin: 10px 10px 10px 200px;
- 
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .bigFriendlyButton{
