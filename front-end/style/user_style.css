@@ -78,6 +78,10 @@ ul {
   font-weight: bold;
 }
 
+.addlink {
+  text-decoration: none;
+}
+
 .addlink:hover  p, .addlink:hover i{
   color: #fff;
 
@@ -139,10 +143,6 @@ ul {
   text-decoration: none;
   background-color:  rgba(0,0,0,0);
 }
-
-
-
-
 
 
 /*IMAGES*/

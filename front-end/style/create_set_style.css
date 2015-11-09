@@ -154,7 +154,8 @@
 
 }
 
-.add:hover, .closebutton:hover {
+.add:hover, 
+.closebutton:hover {
   cursor: pointer;
 }
 

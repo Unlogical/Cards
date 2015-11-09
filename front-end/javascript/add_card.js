@@ -38,4 +38,9 @@ function init() {
     light() 
   }
   
+  document.getElementById("allin").onclick = function(){
+    hideAdd()
+  	light()
+  }
+  
 }
