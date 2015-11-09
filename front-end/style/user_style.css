@@ -4,7 +4,14 @@ padding: 0;
 color: black;
 }
 
-a, a i {
+ul {
+  list-style-type: none;
+}
+
+.header a, 
+.header a i,
+.creation_block a,
+.creation_block a i {
   text-decoration: none;
   color: #0069dd;
   outline: none; 
@@ -80,17 +87,23 @@ a, a i {
   background-color: rgba(10,10,10, 0.4);
 }
 
+.content li .big_icons,
 .content li .icons {
   visibility: hidden;
   opacity: 0;
   position: relative;
   width: 42px;
-  top: -210px;
-  left: 198px;
   padding: 0;
 }
 
-.content li:hover .icons {
+.content li .big_icons {
+  top: -210px;
+  left: 198px;
+}
+
+.content li:hover .icons,
+.content li:hover .big_icons
+ {
   opacity: 1;
   visibility: visible;
   transition: 0.3s 0.1s;
@@ -100,7 +113,8 @@ a, a i {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.content li .icons * {
+.content li .icons * ,
+.content li .big_icons *{
   padding: 2px;
   margin: 0;
   display: block;
@@ -108,11 +122,25 @@ a, a i {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.content li .icons *:hover {
+.content li .icons *:hover,
+.content li .big_icons *:hover {
   background-color: rgba(0,0,0,0.5);
   cursor: pointer;
   color: #fff;
 }
+
+
+.content li a{
+  height: 0;
+}
+
+.content li:hover a {
+  padding: 0;
+  text-decoration: none;
+  background-color:  rgba(0,0,0,0);
+}
+
+
 
 
 
