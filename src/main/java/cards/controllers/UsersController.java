@@ -1,18 +1,17 @@
 package cards.controllers;
 
+import cards.SessionManager;
 import cards.Users;
 import cards.models.ResultMessage;
 import cards.models.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
-
-import static cards.SessionManager.getSessionManager;
 
 /**
  * Created by alexandra on 9/9/15.
@@ -20,9 +19,15 @@ import static cards.SessionManager.getSessionManager;
 @RestController
 public class UsersController {
 
+    @Autowired
+    private SessionManager sessionManager;
+
+    @Autowired
+    private Users users;
+
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public ResultMessage getUser(String login){
-        User user = Users.getUser(login);
+        User user = users.getUser(login);
         if(user != null){
             return new ResultMessage("ok", "user", user);
         }
@@ -31,7 +36,7 @@ public class UsersController {
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public ResultMessage signUp(String login, String passwd, String email, boolean gender){
-        if(Users.addUser(login, passwd, email, gender)){
+        if(users.addUser(login, passwd, email, gender)){
             return new ResultMessage("ok", "user created", null);
         }
         return new ResultMessage("fail", "user not created", null);
@@ -40,9 +45,9 @@ public class UsersController {
     @RequestMapping(value = "/signin", method = RequestMethod.POST)
     public ResultMessage signIn(HttpServletResponse response, String login, String password){
         System.out.println("User signin: " + login + ":" + password);
-        if(Users.checkPassword(login, password)){
+        if(users.checkPassword(login, password)){
             try {
-                String sessionId = getSessionManager().createSession(login);
+                String sessionId = sessionManager.createSession(login);
                 System.out.println("User signin success with session " + sessionId);
                 response.addCookie(new Cookie("sid", sessionId));
                 return new ResultMessage("ok", "Success", sessionId);
@@ -57,7 +62,7 @@ public class UsersController {
     @RequestMapping(value = "/signout", method = RequestMethod.GET)
     public void signOut(@CookieValue("sid") String sessionId){
         try {
-            getSessionManager().deleteSession(sessionId);
+            sessionManager.deleteSession(sessionId);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
