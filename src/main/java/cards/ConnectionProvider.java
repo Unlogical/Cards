@@ -4,26 +4,29 @@ import org.postgresql.jdbc2.optional.ConnectionPool;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Struct;
 
 /**
  * Created by alexandra on 9/27/15.
  */
 public class ConnectionProvider {
 
-    private static ConnectionProvider connectionProvider = new ConnectionProvider();
     private ConnectionPool pool;
+    private final String userName;
+    private final String password;
+    private final String connectionString;
 
-    private ConnectionProvider(){}
-
-    public static ConnectionProvider getConnectionProvider(){
-        return connectionProvider;
+    public ConnectionProvider(String serverAddress, int serverPort, String dbName, String userName, String password) {
+        this.connectionString = "jdbc:postgresql://" + serverAddress + ":" + serverPort + "/" + dbName;
+        this.userName = userName;
+        this.password = password;
     }
 
     public Connection getConnection() throws SQLException, ClassNotFoundException {
         if(pool == null){
             synchronized (ConnectionProvider.class){
                 if (pool == null){
-                    pool = connect("jdbc:postgresql://192.168.56.101/resu_db", "resu", "resu"); //TODO: move to config
+                    pool = connect(connectionString, userName, password); //TODO: move to config
                 }
             }
         }
