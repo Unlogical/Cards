@@ -17,8 +17,8 @@ import java.sql.SQLException;
 /**
  * Created by alexandra on 9/9/15.
  */
-@Controller
-public class UsersController {
+@RestController
+public class RestUserController {
 
     @Autowired
     private SessionManager sessionManager;
@@ -73,12 +73,6 @@ public class UsersController {
     public ResultMessage fakeSignUp(String login, String passwd, String email, boolean gender){
         System.out.println("login = [" + login + "], passwd = [" + passwd + "], email = [" + email + "], gender = [" + gender + "]");
         return new ResultMessage("OK", "Fine", null);
-    }
-
-    @RequestMapping(value = "/")
-    public String index(){
-        System.out.println("LOL");
-        return "index";
     }
 
 }
