@@ -1,12 +1,12 @@
-<!doctype html> 
-<html>
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="style/style.css" />
-    <link rel="shortcut icon" href="style/images/icon.gif" />
-    <link rel="stylesheet" href="style/font-awesome-4.4.0/css/font-awesome.min.css">
-    <script type="text/javascript" src="javascript/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="javascript/login.js"></script>  
+    <link rel="stylesheet" type="text/css" href="/style/style.css" />
+    <link rel="shortcut icon" href="/style/images/icon.gif" />
+    <link rel="stylesheet" href="/style/font-awesome-4.4.0/css/font-awesome.min.css" />
+    <script type="text/javascript" src="/javascript/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/javascript/login.js"></script>
     <title>Cards</title>
   </head>
   <body>
@@ -29,12 +29,12 @@
           <i class="fa fa-times closebutton" id="hidereg"></i>
         </div>
         <form action="http://localhost:8080/user" method="POST">
-          <input type="text" name="login" placeholder="login" id="up_focused" >
-          <input type="password" name="passwd" placeholder="password">
-          <input type="email" name="email" placeholder="email">
-          <input type="date" name="birthDate" placeholder="birth date">
+          <input type="text" name="login" placeholder="login" id="up_focused" />
+          <input type="password" name="passwd" placeholder="password" />
+          <input type="email" name="email" placeholder="email" />
+          <input type="date" name="birthDate" placeholder="birth date" />
           
-          <input class="reg_input_button" type="submit" value="Зарегистрироваться" onclick="submitRegister(); return false;">
+          <input class="reg_input_button" type="submit" value="Зарегистрироваться" onclick="submitRegister(); return false;" />
         </form>
       </div>
       <div class="right"><button class="bigFriendlyButton" id = "reg">Sign up</button></div>
@@ -44,11 +44,12 @@
             <i class="fa fa-times closebutton" id="hide"></i>
           </div>
          <form action="http://localhost:8080/user" method="POST">
-          <input type="text" name="login" placeholder="login" id="in_focused">
-          <input type="password" name="passwd" placeholder="password">
-          <input class="enter_input_button" type="submit" value="Войти">
+          <input type="text" name="login" placeholder="login" id="in_focused" />
+          <input type="password" name="passwd" placeholder="password" />
+          <input class="enter_input_button" type="submit" value="Войти" />
         </form> 
         </div>
       <div class="right"><button class="button" id="enter">Sign in</button></div>
     </div> 
   </body>
+</html>
