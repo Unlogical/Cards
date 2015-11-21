@@ -5,6 +5,7 @@ import cards.Users;
 import cards.models.ResultMessage;
 import cards.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,7 +17,7 @@ import java.sql.SQLException;
 /**
  * Created by alexandra on 9/9/15.
  */
-@RestController
+@Controller
 public class UsersController {
 
     @Autowired
@@ -72,6 +73,12 @@ public class UsersController {
     public ResultMessage fakeSignUp(String login, String passwd, String email, boolean gender){
         System.out.println("login = [" + login + "], passwd = [" + passwd + "], email = [" + email + "], gender = [" + gender + "]");
         return new ResultMessage("OK", "Fine", null);
+    }
+
+    @RequestMapping(value = "/")
+    public String index(){
+        System.out.println("LOL");
+        return "index";
     }
 
 }
