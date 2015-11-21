@@ -7,12 +7,10 @@ public class User {
 
     private final String login;
     private final String email;
-    private final boolean gender;
 
-    public User(String login, String email, boolean gender) {
+    public User(String login, String email) {
         this.login = login;
         this.email = email;
-        this.gender = gender;
     }
 
     public String getLogin() {
@@ -23,7 +21,4 @@ public class User {
         return email;
     }
 
-    public boolean isGender() {
-        return gender;
-    }
 }

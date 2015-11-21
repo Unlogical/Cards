@@ -26,8 +26,7 @@ public class Users {
             ResultSet resultSet = getuser.executeQuery();
             if(resultSet.next()){
                 String email = resultSet.getString("email");
-                Boolean gender = resultSet.getBoolean("gender");
-                return new User(login, email, gender);
+                return new User(login, email);
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -35,7 +34,7 @@ public class Users {
          return null;
     }
 
-    public boolean addUser(String login, String passwd, String email, boolean gender) {
+    public boolean addUser(String login, String passwd, String email) {
         //TODO check this data
         String[] data = new String[3];
         data[0] = login;
@@ -53,11 +52,10 @@ public class Users {
 
 
         try {
-            PreparedStatement insertUser = connectionProvider.getConnection().prepareStatement("insert into users(login, passwd, email, gender) values (?,?,?,?)");
+            PreparedStatement insertUser = connectionProvider.getConnection().prepareStatement("insert into users(login, passwd, email) values (?,?,?)");
             insertUser.setString(1, login);
             insertUser.setString(2, sha256Hex(passwd));
             insertUser.setString(3, email);
-            insertUser.setBoolean(4, gender);
             insertUser.execute();
             return true;
         } catch (SQLException | ClassNotFoundException e) {

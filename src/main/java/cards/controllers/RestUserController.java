@@ -36,8 +36,8 @@ public class RestUserController {
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public ResultMessage signUp(String login, String passwd, String email, boolean gender){
-        if(users.addUser(login, passwd, email, gender)){
+    public ResultMessage signUp(String login, String password, String email){
+        if(users.addUser(login, password, email)){
             return new ResultMessage("ok", "user created", null);
         }
         return new ResultMessage("fail", "user not created", null);
