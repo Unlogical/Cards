@@ -1,7 +1,9 @@
 package cards.controllers;
 
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -11,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PageController {
 
     @RequestMapping(value = "/")
-    public String index(ModelMap model){
-        model.addAttribute("userName", "Fluttershy");
-        return "index";
+    public String index(ModelMap model, @CookieValue(value = "sid", defaultValue = "") String sessionId){
+//        model.addAttribute("userName", "Fluttershy");
+        if(sessionId.isEmpty()){
+            return "index";
+        }
+        return "userpage";
     }
-
 }

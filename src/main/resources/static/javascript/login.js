@@ -65,16 +65,15 @@ function submitRegister(){
     url: "http://localhost:8080/fakesignup",
     type: "POST",
     dataType : "json",
-    data: {login: "lol", passwd: "123", email: "q@q.com", gender: false},
+    data: $(document.signup).serialize(),
     success: function(data) {
-      console.log("SUCCESS");     
+      console.log("User registered successfully");
       console.log(data);
+      //window.location.replace("/userpage.html");
     },
-    error: function(a,b,c){
-      console.log("AAA"); 
-      console.log(a)
-      console.log(b)
-      console.log(c)
+    error: function(data){
+      console.log("Impossible to register user");
+      console.log(data)
     }
   })
 }

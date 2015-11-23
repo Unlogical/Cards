@@ -36,9 +36,18 @@ public class RestUserController {
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public ResultMessage signUp(String login, String password, String email){
+    public ResultMessage signUp(HttpServletResponse response, String login, String password, String email){
         if(users.addUser(login, password, email)){
-            return new ResultMessage("ok", "user created", null);
+            String sessionId = null;
+            try {
+                sessionId = sessionManager.createSession(login);
+                System.out.println("User signin success with session " + sessionId);
+                response.addCookie(new Cookie("sid", sessionId));
+                return new ResultMessage("ok", "user created", null);
+            } catch (SQLException | ClassNotFoundException e) {
+                e.printStackTrace();
+                return new ResultMessage("fail", "user not created due to internal error", null);
+            }
         }
         return new ResultMessage("fail", "user not created", null);
     }
