@@ -37,7 +37,7 @@ public class PageController {
         }
     }
 
-    @RequestMapping(value = "/create_set")
+    @RequestMapping(value = "/create_set", method = RequestMethod.GET)
     public String create_set(ModelMap model, @CookieValue(value = "sid", defaultValue = "") String sessionId){
         if (sessionManager.sessionExists(sessionId)) {
             return "create_set";
