@@ -2,7 +2,7 @@ CREATE TABLE users(
   id bigserial,
   login varchar(32) UNIQUE,
   email varchar(32) NOT NULL UNIQUE,
-  passwd varchar(64) NOT NULL
+  passwd varchar(64) NOT NULL,
   
   CONSTRAINT users_pk PRIMARY KEY (id)
 );

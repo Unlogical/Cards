@@ -20,4 +20,11 @@ public class PageController {
         }
         return "userpage";
     }
+
+    @RequestMapping(value = "/userpage")
+    public String userpage(ModelMap model, @CookieValue(value = "sid", defaultValue = "") String sessionId){
+        return "userpage";
+    }
+
 }
+

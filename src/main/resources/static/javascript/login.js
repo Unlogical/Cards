@@ -62,14 +62,14 @@ window.addEventListener('load',init,false)
 function submitRegister(){
   console.log("sending register");
   $.ajax({
-    url: "http://localhost:8080/fakesignup",
+    url: "http://localhost:8080/signup",
     type: "POST",
     dataType : "json",
     data: $(document.signup).serialize(),
     success: function(data) {
       console.log("User registered successfully");
       console.log(data);
-      //window.location.replace("/userpage.html");
+      window.location.replace("/");
     },
     error: function(data){
       console.log("Impossible to register user");

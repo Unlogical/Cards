@@ -5,6 +5,7 @@ import cards.Users;
 import cards.models.ResultMessage;
 import cards.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.SystemEnvironmentPropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.sql.SQLException;
 
 /**
@@ -37,18 +39,22 @@ public class RestUserController {
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public ResultMessage signUp(HttpServletResponse response, String login, String password, String email){
+        System.out.println("New user signup");
         if(users.addUser(login, password, email)){
             String sessionId = null;
             try {
                 sessionId = sessionManager.createSession(login);
                 System.out.println("User signin success with session " + sessionId);
                 response.addCookie(new Cookie("sid", sessionId));
+                System.out.println("New user signup done");
                 return new ResultMessage("ok", "user created", null);
             } catch (SQLException | ClassNotFoundException e) {
+                System.out.println("New user signup failed (internal error)");
                 e.printStackTrace();
                 return new ResultMessage("fail", "user not created due to internal error", null);
             }
         }
+        System.out.println("New user signup failed");
         return new ResultMessage("fail", "user not created", null);
     }
 
@@ -76,12 +82,6 @@ public class RestUserController {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-    }
-
-    @RequestMapping(value = "/fakesignup", method = RequestMethod.POST)
-    public ResultMessage fakeSignUp(String login, String passwd, String email, boolean gender){
-        System.out.println("login = [" + login + "], passwd = [" + passwd + "], email = [" + email + "], gender = [" + gender + "]");
-        return new ResultMessage("OK", "Fine", null);
     }
 
 }
