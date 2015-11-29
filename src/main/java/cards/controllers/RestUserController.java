@@ -75,13 +75,4 @@ public class RestUserController {
         return  new ResultMessage("fail", "Fail", null);
     }
 
-    @RequestMapping(value = "/signout", method = RequestMethod.GET)
-    public void signOut(@CookieValue("sid") String sessionId){
-        try {
-            sessionManager.deleteSession(sessionId);
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
 }
