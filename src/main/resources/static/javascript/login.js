@@ -77,3 +77,22 @@ function submitRegister(){
     }
   })
 }
+
+function submitLogin(){
+  console.log("sending register");
+  $.ajax({
+    url: "http://localhost:8080/signin",
+    type: "POST",
+    dataType : "json",
+    data: $(document.signin).serialize(),
+    success: function(data) {
+      console.log("User logged in successfully");
+      console.log(data);
+      window.location.replace("/");
+    },
+    error: function(data){
+      console.log("Impossible to login user");
+      console.log(data)
+    }
+  })
+}
