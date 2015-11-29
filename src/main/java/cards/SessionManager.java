@@ -61,4 +61,16 @@ public class SessionManager {
         }
         return  -1;
     }
+
+    public boolean sessionExists(String sessionId) {
+        try {
+            int uuid = this.sessionToId(sessionId);
+            if(!sessionId.isEmpty() && uuid >= 0){
+                return true;
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

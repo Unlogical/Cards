@@ -21,21 +21,67 @@ public class PageController {
 
     @RequestMapping(value = "/")
     public String index(ModelMap model, @CookieValue(value = "sid", defaultValue = "") String sessionId){
-        try {
-            int uuid = sessionManager.sessionToId(sessionId);
-            if(!sessionId.isEmpty() && uuid >= 0){
-                return "userpage";
-            }
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
+        if (sessionManager.sessionExists(sessionId)) {
+            return "userpage";
+        } else {
+            return "index";
         }
-        return "index";
     }
 
-    @RequestMapping(value = "/userpage")
-    public String userpage(ModelMap model, @CookieValue(value = "sid", defaultValue = "") String sessionId){
-        return "userpage";
+    @RequestMapping(value = "/add")
+    public String add(ModelMap model, @CookieValue(value = "sid", defaultValue = "") String sessionId){
+        if (sessionManager.sessionExists(sessionId)) {
+            return "add";
+        } else {
+            return "index";
+        }
     }
+
+    @RequestMapping(value = "/create_set")
+    public String create_set(ModelMap model, @CookieValue(value = "sid", defaultValue = "") String sessionId){
+        if (sessionManager.sessionExists(sessionId)) {
+            return "create_set";
+        } else {
+            return "index";
+        }
+    }
+
+    @RequestMapping(value = "/edit_set")
+    public String edit_set(ModelMap model, @CookieValue(value = "sid", defaultValue = "") String sessionId){
+        if (sessionManager.sessionExists(sessionId)) {
+            return "edit_set";
+        } else {
+            return "index";
+        }
+    }
+
+    @RequestMapping(value = "/category")
+    public String category(ModelMap model, @CookieValue(value = "sid", defaultValue = "") String sessionId){
+        if (sessionManager.sessionExists(sessionId)) {
+            return "category";
+        } else {
+            return "index";
+        }
+    }
+
+    @RequestMapping(value = "/learn")
+    public String learn(ModelMap model, @CookieValue(value = "sid", defaultValue = "") String sessionId){
+        if (sessionManager.sessionExists(sessionId)) {
+            return "learn";
+        } else {
+            return "index";
+        }
+    }
+
+    @RequestMapping(value = "/learn2")
+    public String learn2(ModelMap model, @CookieValue(value = "sid", defaultValue = "") String sessionId){
+        if (sessionManager.sessionExists(sessionId)) {
+            return "learn2";
+        } else {
+            return "index";
+        }
+    }
+
 
     @RequestMapping(value = "/exit", method = RequestMethod.GET)
     public String exit(@CookieValue("sid") String sessionId){
