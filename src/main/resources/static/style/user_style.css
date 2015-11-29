@@ -152,6 +152,7 @@ ul {
 
 /*IMAGES*/
 .image{
+  display: block;
   width: 240px;
   height: 180px;
   background-size: cover;

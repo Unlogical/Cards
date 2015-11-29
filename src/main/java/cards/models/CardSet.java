@@ -11,14 +11,16 @@ public class CardSet {
     private final String author;
     private final String creation_date;
     private final String description;
+    private final String image;
 
-    public CardSet(Integer id, String title, boolean privacy, String author, String creation_date, String description) {
+    public CardSet(Integer id, String title, boolean privacy, String author, String creation_date, String description, String image) {
         this.id = id;
         this.title = title;
         this.privacy = privacy;
         this.author = author;
         this.creation_date = creation_date;
         this.description = description;
+        this.image = image;
     }
 
     public Integer getId() {
@@ -43,5 +45,9 @@ public class CardSet {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getImage() {
+        return image;
     }
 }

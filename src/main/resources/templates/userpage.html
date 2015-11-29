@@ -19,13 +19,15 @@
     <div class="center content">
       <div>
         <ul data-th-each="cardset : ${cardsets}">
-          <li data-th-id="${#ids.seq('set')}"><a href="learn.html" >
-            <div class="image img1"> </div> </a>
-            <p class="set" data-th-text="${cardset.title}">Название набора или альбома</p>
-            <div class="big_icons">
-              <i class="fa fa-trash-o" id="delete-set1" title="Удалить"></i>
-              <a href="edit_set.html" ><i class="fa fa-pencil-square-o" title="Редактировать"></i></a>
-            </div>
+          <li data-th-id="${#ids.seq('set')}">
+            <a href="learn.html">
+              <div class="image" data-th-style="'background-image: url(' + ${cardset.image} + ')'" />
+              <p class="set" data-th-text="${cardset.title}">Название набора или альбома</p>
+              <div class="big_icons">
+                <i class="fa fa-trash-o" id="delete-set1" title="Удалить"></i>
+                <a href="edit_set.html" ><i class="fa fa-pencil-square-o" title="Редактировать"></i></a>
+              </div>
+            </a>
           </li>
         </ul>
         <!--<div ><a class="addlink" href="add.html" >-->
