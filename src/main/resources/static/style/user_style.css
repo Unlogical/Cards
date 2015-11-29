@@ -144,7 +144,6 @@ ul {
 }
 
 .content li:hover a {
-  padding: 0;
   text-decoration: none;
   background-color:  rgba(0,0,0,0);
 }
@@ -199,23 +198,6 @@ ul {
   left: 85px;
 }
 
+.cardset a{
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

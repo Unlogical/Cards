@@ -19,7 +19,7 @@
     <div class="center content">
       <div>
         <ul data-th-each="cardset : ${cardsets}">
-          <li data-th-id="${#ids.seq('set')}">
+          <li data-th-id="${#ids.seq('set')}" class="cardset">
             <a href="learn.html">
               <div class="image" data-th-style="'background-image: url(' + ${cardset.image} + ')'" />
               <p class="set" data-th-text="${cardset.title}">Название набора или альбома</p>
