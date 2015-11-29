@@ -1,6 +1,7 @@
 package cards.controllers;
 
 import cards.SessionManager;
+import cards.models.CardSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by alexandra on 11/21/15.
@@ -22,6 +25,14 @@ public class PageController {
     @RequestMapping(value = "/")
     public String index(ModelMap model, @CookieValue(value = "sid", defaultValue = "") String sessionId){
         if (sessionManager.sessionExists(sessionId)) {
+
+            List<CardSet> cardsets = new LinkedList<>();
+            cardsets.add(new CardSet(0, "Первый набор", false, "you", "now", "Это первый альбом"));
+            cardsets.add(new CardSet(1, "Ололо", false, "you", "now", "Это еще один альбом"));
+            cardsets.add(new CardSet(2, "Мамонты", false, "you", "now", "И это альбом"));
+            cardsets.add(new CardSet(3, "Я люблю малинку", false, "you", "now", "Такой вот альбом"));
+            model.addAttribute("cardsets", cardsets);
+
             return "userpage";
         } else {
             return "index";
