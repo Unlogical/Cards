@@ -75,7 +75,7 @@ CREATE TABLE sessions(
   CONSTRAINT sessions_userid_fk FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
-INSERT INTO users(login, email, passwd, birth_date) VALUES('fluttershy', 'flutter@shy.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b'); --passwd = 1
+INSERT INTO users(login, email, passwd) VALUES('fluttershy', 'flutter@shy.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b'); --passwd = 1
 INSERT INTO card_sets(title, author, description) VALUES('Птицы', 1, 'Выучи названия всех птиц!');
 INSERT INTO used_card_sets(user_id, card_set_id) VALUES(1,1);
 INSERT INTO cards(image_a, text_b, card_set_id, reversable) VALUES('http://nohost.com/1.jpg', 'Дятел', 1, false);
