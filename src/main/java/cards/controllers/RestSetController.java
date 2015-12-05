@@ -20,7 +20,8 @@ public class RestSetController {
 
     @RequestMapping(value = "create_set", method = RequestMethod.POST)
     public ResultMessage createSet(@CookieValue(value = "sid", defaultValue = "") String sessionId) {
-      return null;
 
+
+      return null;
     }
 }

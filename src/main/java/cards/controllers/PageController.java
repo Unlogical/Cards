@@ -25,7 +25,6 @@ public class PageController {
     @RequestMapping(value = "/")
     public String index(ModelMap model, @CookieValue(value = "sid", defaultValue = "") String sessionId){
         if (sessionManager.sessionExists(sessionId)) {
-
             List<CardSet> cardsets = new LinkedList<>();
             cardsets.add(new CardSet(1, "Первый набор", false, "you", "now", "Это первый альбом", "/style/images/albums/1.jpg"));
             cardsets.add(new CardSet(2, "Ололо", false, "you", "now", "Это еще один альбом", "/style/images/albums/2.jpg"));
