@@ -1,7 +1,7 @@
 package cards.models;
 
 /**
- * Created by cyou on 11/29/15.
+ * Created by alexandra on 11/29/15.
  */
 public class CardSet {
 
