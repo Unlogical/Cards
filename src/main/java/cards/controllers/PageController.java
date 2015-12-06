@@ -3,6 +3,7 @@ package cards.controllers;
 import cards.SessionManager;
 import cards.models.CardSet;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.SystemEnvironmentPropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -47,6 +48,7 @@ public class PageController {
 
     @RequestMapping(value = "/add")
     public String add(ModelMap model, @CookieValue(value = "sid", defaultValue = "") String sessionId){
+        System.out.println("LOL");
         if (sessionManager.sessionExists(sessionId)) {
             return "add";
         } else {
