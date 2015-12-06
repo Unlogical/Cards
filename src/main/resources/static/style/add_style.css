@@ -37,6 +37,85 @@
   position: relative;
 }
 
-.other a {
-  
+.set_name {
+  background-color:  #fff;
+  border-right: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #000;
+  font-size:20px;
+  margin-bottom:10px;
+  position: relative;
+  left: 19px;
+}
+
+
+.top {
+  height: 20px;
+}
+
+.check {
+  padding: 0  0 10px 10px;
+  float: left;
+  position: relative;
+
+}
+
+.add:hover,
+.closebutton:hover {
+  cursor: pointer;
+}
+
+.add_button {
+  float: right;
+  margin: -10px 10px 10px 10px;
+  padding: 2px;
+  border: 3px solid #55e1af;
+  background-color: #55e1af;
+  color: #fff;
+}
+
+.add_button:hover {
+  border: 3px solid #44d09e;
+  background-color: #44d09e;
+}
+
+.add_button:active {
+  border-left: 3px solid #22ae7c;
+  border-top: 3px solid #22ae7c;
+}
+
+.add_block {
+
+  transition: 0.4s 0s;
+  z-index: 2;
+  width:500px;
+  position: fixed;
+  right: 50%;
+  top: 50%;
+  margin-top: -200px;
+  margin-right: -250px;
+  box-shadow: 0 0 15px 5px  #99fad1;
+  border: 1px solid rgb(235,245,255);
+  background-color: rgb(255,255,255);
+}
+
+
+.closebutton {
+  color: #777;
+  position: relative;
+  right: -5px;
+  top: 0px;
+  height:20px;
+  width:20px;
+  float:right
+}
+
+.setImage{
+  display: block;
+  width: 240px;
+  height: 180px;
+  background-size: cover;
+  background-position: center center;
+
 }

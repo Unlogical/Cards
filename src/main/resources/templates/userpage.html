@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
   <head>
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="style/user_style.css" />
@@ -20,14 +20,14 @@
       <div>
         <ul data-th-each="cardset : ${cardsets}">
           <li data-th-id="${#ids.seq('set')}" class="cardset">
-              <div class="image" data-th-style="'background-image: url(' + ${cardset.image} + ')'" >
-                <a href="learn.html"></a>
-              </div>
+            <a href="learn.html">
+              <div class="image" data-th-style="'background-image: url(' + ${cardset.image} + ')'" />
               <p class="set" data-th-text="${cardset.title}">Название набора или альбома</p>
-              <div class="big_icons">
-                <i class="fa fa-trash-o" id="delete-set1" title="Удалить"></i>
-                <a href="edit_set.html" ><i class="fa fa-pencil-square-o" title="Редактировать"></i></a>
-              </div>
+            </a>
+            <div class="big_icons">
+              <i class="fa fa-trash-o" title="Удалить"></i>
+              <a href="edit_set.html" ><i class="fa fa-pencil-square-o" title="Редактировать"></i></a>
+            </div>
           </li>
         </ul>
         <ul>

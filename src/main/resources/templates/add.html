@@ -20,6 +20,37 @@
     </div>    
     <div class="center content"> 
     <div class="creation_block"><a href="/create_set" class="creation_link"><i class="fa fa-plus"></i> Создать свой</a></div>
+      <div class="add_block" id="add_block">
+        <div class="top">
+          <i class="fa fa-times closebutton" id="hide"></i>
+        </div>
+        <div><input type="text" class="set_name" placeholder="Название альбома" autofocus= "true" /> </div>
+        <ul>
+          <li>
+            <a class="addlink" href="/add" >
+              <div class="setImage addImg"> <i class="fa fa-plus addIcon fa-5x"></i></div>
+              <p class="addText">Добавить обложку набора</p>
+            </a>
+          </li>
+          <input type="file" name="setcover" onchange="sendImage('setcover')"/>
+          <li>
+            <div class="choose">Выберете одну или несколько категорий:</div>
+            <ul class="categories_list">
+              <li><input type="checkbox" />Языки</li>
+              <li><input type="checkbox" />Физика</li>
+              <li><input type="checkbox" />Математика</li>
+              <li><input type="checkbox" />Программирование</li>
+              <li><input type="checkbox" />Биология</li>
+              <li><input type="checkbox" />Химия</li>
+              <li><input type="checkbox" />История</li>
+              <li><input type="checkbox" />Искусство</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="check"><input type="checkbox" /> Закрытый</div>
+        <button class="add_button">Создать альбом</button>
+      </div>
+    </div>
     <div class="choose_header">  
       <p class="choose_text">Выбрать существующий : </p>
       <input type="search" name="search" placeholder="Поиск" />
@@ -89,7 +120,6 @@
         </li> 
         <li class="other" ><div><a href="category.html"  >Ещё...</a></div></li> 
       </ul>
-    </div> 
-    </div> 
+    </div>
   </body>
 </html>

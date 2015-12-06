@@ -7,6 +7,7 @@ color: black;
 a {
   text-decoration: none;
   outline: none;
+  border-width: 0px;
 }
 
 ul {
@@ -74,6 +75,7 @@ ul {
 }
 
 .addText {
+  width: 240px;
   top: -60px;
   text-align: center;
   padding: 5px 0;
@@ -110,6 +112,10 @@ ul {
   left: 198px;
 }
 
+.big_icons i:last-child {
+
+}
+
 .content li:hover .icons,
 .content li:hover .big_icons
  {
@@ -124,11 +130,14 @@ ul {
 
 .content li .icons * ,
 .content li .big_icons *{
-  padding: 2px;
   margin: 0;
   display: block;
   float: right;
   background-color: rgba(255, 255, 255, 0.8);
+}
+
+.content li .big_icons i{
+  padding: 2px;
 }
 
 .content li .icons *:hover,
