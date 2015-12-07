@@ -76,6 +76,17 @@ public class Users {
         return -1;
     }
 
+    public String idToLogin(long userId) throws SQLException, ClassNotFoundException {
+        Connection cnct = connectionProvider.getConnection();
+        PreparedStatement preparedStatement = cnct.prepareStatement("select login from users where id = ?");
+        preparedStatement.setLong(1,userId);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if(resultSet.next()){
+            return resultSet.getString("login");
+        }
+        return null;
+    }
+
     public boolean checkPassword(String login, String password){
         String passwordHash = sha256Hex(password);
         try {

@@ -5,7 +5,7 @@ package cards.models;
  */
 public class CardSet {
 
-    private final int id;
+    private final long id;
     private final String title;
     private final boolean privacy;
     private final String author;
@@ -13,7 +13,7 @@ public class CardSet {
     private final String description;
     private final String image;
 
-    public CardSet(Integer id, String title, boolean privacy, String author, String creation_date, String description, String image) {
+    public CardSet(long id, String title, boolean privacy, String author, String creation_date, String description, String image) {
         this.id = id;
         this.title = title;
         this.privacy = privacy;
@@ -23,7 +23,7 @@ public class CardSet {
         this.image = image;
     }
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 

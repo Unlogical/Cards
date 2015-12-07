@@ -1,7 +1,6 @@
 package cards;
 
 import cards.models.CardSet;
-import cards.models.User;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,15 +12,17 @@ import java.sql.SQLException;
 public class CardSets {
 
     private final ConnectionProvider connectionProvider;
+    private final Users users;
 
-    public CardSets(ConnectionProvider connectionProvider) {
+    public CardSets(ConnectionProvider connectionProvider, Users users) {
         this.connectionProvider = connectionProvider;
+        this.users = users;
     }
 
-    public CardSet getCardSet(int cardsetId){
+    public CardSet getCardSet(long cardsetId){
         try {
             PreparedStatement getcardset = connectionProvider.getConnection().prepareStatement("select * from card_sets where id = ?");
-            getcardset.setInt(1, cardsetId);
+            getcardset.setLong(1, cardsetId);
             ResultSet resultSet = getcardset.executeQuery();
             if(resultSet.next()){
                 String title = resultSet.getString("title");
@@ -37,5 +38,28 @@ public class CardSets {
         }
         return null;
     }
+
+    public CardSet createCardSet(long authorId, boolean privacy, String title, String description){
+        try {
+            PreparedStatement createcardset = connectionProvider.getConnection().prepareStatement("insert into card_sets (title, privacy, author, description) values (?, ?, ?, ?)");
+            createcardset.setString(1, title);
+            createcardset.setBoolean(2, privacy);
+            createcardset.setLong(3, authorId);
+            createcardset.setString(4, description);
+            createcardset.execute();
+
+            ResultSet generatedKeys = createcardset.getGeneratedKeys();
+            if(generatedKeys.next()){
+                long cardsetId = generatedKeys.getLong(1);
+                String authorLogin = users.idToLogin(authorId);
+                return new CardSet(cardsetId, title, privacy, authorLogin, "now", description, "");
+            }
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 }
