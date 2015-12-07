@@ -16,11 +16,10 @@ public class SessionManager {
         this.connectionProvider = connectionProvider;
     }
 
-    public String createSession(String login) throws SQLException, ClassNotFoundException {
-        int userId = loginToId(login);
-        String sessionID = sha256Hex(login + System.currentTimeMillis());
+    public String createSession(long userId) throws SQLException, ClassNotFoundException {
+        String sessionID = sha256Hex(userId + "-" + System.currentTimeMillis());
         PreparedStatement preparedStatement = connectionProvider.getConnection().prepareStatement("insert into sessions(user_id, session_id) values(?,?)");
-        preparedStatement.setInt(1, userId);
+        preparedStatement.setLong(1, userId);
         preparedStatement.setString(2, sessionID);
         preparedStatement.execute();
         return sessionID;
@@ -38,17 +37,6 @@ public class SessionManager {
         PreparedStatement preparedStatement = connection.prepareStatement("delete from sessions where user_id = ?");
         preparedStatement.setInt(1,userId);
         preparedStatement.execute();
-    }
-
-    private int loginToId(String login) throws SQLException, ClassNotFoundException {
-        Connection cnct = connectionProvider.getConnection();
-        PreparedStatement preparedStatement = cnct.prepareStatement("select id from users where login = ?");
-        preparedStatement.setString(1,login);
-        ResultSet resultSet = preparedStatement.executeQuery();
-        if(resultSet.next()){
-            return resultSet.getInt("id");
-        }
-        return -1;
     }
 
     public int sessionToId(String sessionId) throws SQLException, ClassNotFoundException {

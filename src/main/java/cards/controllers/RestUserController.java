@@ -43,7 +43,8 @@ public class RestUserController {
         if(users.addUser(login, password, email)){
             String sessionId = null;
             try {
-                sessionId = sessionManager.createSession(login);
+                int userId = users.loginToId(login);
+                sessionId = sessionManager.createSession(userId);
                 System.out.println("User signin success with session " + sessionId);
                 response.addCookie(new Cookie("sid", sessionId));
                 System.out.println("New user signup done");
@@ -63,7 +64,8 @@ public class RestUserController {
         System.out.println("User signin: " + login + ":" + password);
         if(users.checkPassword(login, password)){
             try {
-                String sessionId = sessionManager.createSession(login);
+                int userId = users.loginToId(login);
+                String sessionId = sessionManager.createSession(userId);
                 System.out.println("User signin success with session " + sessionId);
                 response.addCookie(new Cookie("sid", sessionId));
                 return new ResultMessage("ok", "Success", sessionId);

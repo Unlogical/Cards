@@ -2,6 +2,7 @@ package cards;
 
 import cards.models.User;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -62,6 +63,17 @@ public class Users {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public int loginToId(String login) throws SQLException, ClassNotFoundException {
+        Connection cnct = connectionProvider.getConnection();
+        PreparedStatement preparedStatement = cnct.prepareStatement("select id from users where login = ?");
+        preparedStatement.setString(1,login);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if(resultSet.next()){
+            return resultSet.getInt("id");
+        }
+        return -1;
     }
 
     public boolean checkPassword(String login, String password){
