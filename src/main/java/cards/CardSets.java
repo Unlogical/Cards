@@ -1,10 +1,13 @@
 package cards;
 
+import cards.models.Card;
 import cards.models.CardSet;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by cyou on 12/7/15.
@@ -59,6 +62,29 @@ public class CardSets {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public List<CardSet> getUsersCardsets(long userId){
+        List<CardSet> cardsets = new LinkedList<>();
+        try {
+            PreparedStatement query = connectionProvider.getConnection().prepareStatement("select * from card_sets where author = ?");
+            ResultSet result = query.executeQuery();
+            while(result.next()){
+                long id = result.getLong(1);
+                String title = result.getString(2);
+                boolean privacy = result.getBoolean(3);
+                long authorId = result.getLong(4);
+                String author = users.idToLogin(authorId);
+                String description = result.getString(5);
+                String image = result.getString(6);
+                CardSet cardset = new CardSet(id, title, privacy, author, "", description, image);
+                cardsets.add(cardset);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return cardsets;
     }
 
 

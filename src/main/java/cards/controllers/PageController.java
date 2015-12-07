@@ -1,5 +1,6 @@
 package cards.controllers;
 
+import cards.CardSets;
 import cards.SessionManager;
 import cards.models.CardSet;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,23 +24,33 @@ public class PageController {
     @Autowired
     private SessionManager sessionManager;
 
+    @Autowired
+    private CardSets cardsets;
+
     @RequestMapping(value = "/")
     public String index(ModelMap model, @CookieValue(value = "sid", defaultValue = "") String sessionId){
         if (sessionManager.sessionExists(sessionId)) {
-            List<CardSet> cardsets = new LinkedList<>();
-            cardsets.add(new CardSet(1, "Первый набор", false, "you", "now", "Это первый альбом", "/style/images/albums/1.jpg"));
-            cardsets.add(new CardSet(2, "Ололо", false, "you", "now", "Это еще один альбом", "/style/images/albums/2.jpg"));
-            cardsets.add(new CardSet(3, "Мамонты", false, "you", "now", "И это альбом", "/style/images/albums/3.jpg"));
-            cardsets.add(new CardSet(4, "Я люблю малинку", false, "you", "now", "Такой вот альбом", "/style/images/albums/4.jpg"));
+//            List<CardSet> cardsets = new LinkedList<>();
+//            cardsets.add(new CardSet(1, "Первый набор", false, "you", "now", "Это первый альбом", "/style/images/albums/1.jpg"));
+//            cardsets.add(new CardSet(2, "Ололо", false, "you", "now", "Это еще один альбом", "/style/images/albums/2.jpg"));
+//            cardsets.add(new CardSet(3, "Мамонты", false, "you", "now", "И это альбом", "/style/images/albums/3.jpg"));
+//            cardsets.add(new CardSet(4, "Я люблю малинку", false, "you", "now", "Такой вот альбом", "/style/images/albums/4.jpg"));
+//
+//            cardsets.add(new CardSet(5, "Сколько же тут наборов...", false, "you", "now", "Такой вот альбом", "/style/images/albums/5.jpg"));
+//            cardsets.add(new CardSet(6, "Не могу уже тут придумывать названия", false, "you", "now", "Такой вот альбом", "/style/images/albums/6.jpg"));
+//            cardsets.add(new CardSet(7, "Как дела?", false, "you", "now", "Такой вот альбом", "/style/images/albums/7.jpg"));
+//            cardsets.add(new CardSet(8, "Пыщ-пыщ", false, "you", "now", "Такой вот альбом", "/style/images/albums/8.jpg"));
+//            cardsets.add(new CardSet(9, "Чешет спину", false, "you", "now", "Такой вот альбом", "/style/images/albums/9.jpg"));
 
-            cardsets.add(new CardSet(5, "Сколько же тут наборов...", false, "you", "now", "Такой вот альбом", "/style/images/albums/5.jpg"));
-            cardsets.add(new CardSet(6, "Не могу уже тут придумывать названия", false, "you", "now", "Такой вот альбом", "/style/images/albums/6.jpg"));
-            cardsets.add(new CardSet(7, "Как дела?", false, "you", "now", "Такой вот альбом", "/style/images/albums/7.jpg"));
-            cardsets.add(new CardSet(8, "Пыщ-пыщ", false, "you", "now", "Такой вот альбом", "/style/images/albums/8.jpg"));
-            cardsets.add(new CardSet(9, "Чешет спину", false, "you", "now", "Такой вот альбом", "/style/images/albums/9.jpg"));
-
-            model.addAttribute("cardsets", cardsets);
-
+            long userId = 0;
+            try {
+                userId = sessionManager.sessionToId(sessionId);
+                List<CardSet> userCardsets = cardsets.getUsersCardsets(userId);
+                model.addAttribute("cardsets", userCardsets);
+            } catch (SQLException | ClassNotFoundException e) {
+                e.printStackTrace();
+                model.addAttribute("cardsets", new LinkedList<>());
+            }
             return "userpage";
         } else {
             return "index";
